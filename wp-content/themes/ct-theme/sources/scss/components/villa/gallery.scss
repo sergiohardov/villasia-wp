@@ -1,0 +1,240 @@
+.villa-gallery {
+  &__inner {
+    position: relative;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 8px;
+    @media (max-width: $bp-md) {
+      display: flex;
+    }
+  }
+  &__item {
+    width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &:first-child {
+      grid-row: span 2;
+      max-height: 388px;
+      aspect-ratio: calc(588 / 388);
+
+      @media (max-width: $bp-md) {
+        aspect-ratio: calc(342 / 226);
+      }
+    }
+    &:not(:first-child) {
+      max-height: 190px;
+      aspect-ratio: calc(298 / 190);
+      @media (max-width: $bp-md) {
+        display: none;
+      }
+    }
+  }
+  &__counter {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 10;
+
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    padding: 10px 16px;
+    background: var(--color-primary-white);
+    border-radius: 100px;
+
+    i {
+      --icon-color: var(--color-primary-black);
+      --icon-size: 16px;
+    }
+
+    span {
+      color: var(--color-primary-black);
+      font-family: var(--font-site-main);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+  &-modal {
+    border-radius: 10px;
+    max-width: 1200px;
+    max-height: calc(100% - 76px);
+    width: 100%;
+    height: 100%;
+    padding: 24px 40px;
+    position: relative;
+    &__inner {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+    }
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &-title {
+        color: var(--color-primary-black);
+        font-family: var(--font-site-main);
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      &-btn {
+        padding: 0;
+        min-height: max-content;
+        background: transparent;
+        i {
+          --icon-size: 32px;
+        }
+      }
+    }
+    &__container {
+      width: 100%;
+      position: relative;
+      max-height: 550px;
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      grid-template-rows: 1fr;
+      gap: 16px;
+    }
+    &__footer {
+      .swiper-pagination {
+        top: 0;
+        bottom: 0;
+        position: relative;
+        color: var(--color-primary-black);
+        text-align: center;
+        font-family: var(--font-site-main);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+    #mainSlider {
+      width: 100%;
+      .swiper-slide {
+        border-radius: 10px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        &:after {
+          content: none;
+        }
+      }
+      .swiper-button-prev {
+        left: 16px;
+      }
+      .swiper-button-next {
+        right: 16px;
+      }
+    }
+    #thumbsSlider {
+      width: 100%;
+      .swiper-slide-thumb-active {
+        border: 3px solid var(--color-primary-pink);
+      }
+      .swiper-slide {
+        border-radius: 6px;
+        overflow: hidden;
+        width: 100%;
+        height: 120px;
+        box-sizing: border-box;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+#fancybox-villa-gallery {
+  .fancybox__thumbs {
+    --f-thumb-border-radius: 6px;
+    --f-thumb-outline: 0px;
+    --f-thumb-outline-color: transparent;
+  }
+  .fancybox__thumbs.is-classic {
+    --f-thumb-gap: 8px;
+  }
+  .f-thumbs__slide {
+    --f-thumb-width: 120px;
+    --f-thumb-height: 120px;
+  }
+  .f-thumbs__slide__button {
+    padding: 0;
+  }
+}
+
+// TODO: test modal desing
+// .fancybox__container {
+//   flex-direction: row;
+//   max-width: 1200px;
+//   max-height: 692px;
+//   width: 100%;
+//   height: 100%;
+//   margin: auto;
+//   padding: 24px 40px;
+//   gap: 16px;
+//   &:after {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: #fff;
+//     border-radius: 10px;
+//   }
+// }
+// .fancybox__footer {
+//   z-index: 10;
+// }
+// .f-thumbs__track {
+//   flex-direction: column;
+//   width: 120px;
+// }
+// .f-thumbs__slide {
+//   --f-thumb-width: 100%;
+//   --f-thumb-height: 120px;
+//   button {
+//     padding: 0;
+//     margin: 0;
+//     width: 100%;
+//   }
+//   img {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//   }
+// }
+// .fancybox__thumbs.is-classic {
+//   --f-thumb-gap: 8px;
+// }
+// .f-thumbs.is-vertical .f-thumbs__track {
+//   padding: 0;
+// }

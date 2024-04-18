@@ -1,0 +1,71 @@
+.villa-keyfeature {
+  &__title {
+    color: var(--color-primary-black);
+    font-family: var(--font-site-main);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    margin-bottom: 40px;
+
+    @media (max-width: $bp-sm) {
+      font-size: 24px;
+      letter-spacing: unset;
+
+      margin-bottom: 32px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    row-gap: 64px;
+
+    @media (max-width: $bp-sm) {
+      column-gap: 28px;
+      row-gap: 24px;
+    }
+  }
+  &__item {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    @media (max-width: $bp-sm) {
+      width: 146px;
+      flex-direction: row;
+      gap: 16px;
+    }
+    &-icon {
+      width: 48px;
+      height: 48px;
+      @media (max-width: $bp-sm) {
+        width: 32px;
+        height: 32px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &-label {
+      text-align: center;
+      color: var(--color-secondary-darkgrey);
+      font-family: var(--font-site-main);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 0.32px;
+
+      @media (max-width: $bp-sm) {
+        text-align: left;
+        font-size: 14px;
+        letter-spacing: unset;
+      }
+    }
+  }
+}

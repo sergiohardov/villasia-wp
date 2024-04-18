@@ -1,0 +1,49 @@
+<div class="page-submit__form__main">
+  <label class="ct-cf7-item ct-cf7-item__name">
+    <span class="ct-cf7-label">Full name<b>*</b></span>
+    [text* submit-fullname placeholder "Ex. John Website"]
+  </label>
+
+  <label class="ct-cf7-item ct-cf7-item__phone">
+    <span class="ct-cf7-label">Mobile<b>*</b></span>
+    [tel* submit-mobile placeholder "+66 12 345 6789"]
+  </label>
+
+  <label class="ct-cf7-item ct-cf7-item__email">
+    <span class="ct-cf7-label">Email<b>*</b></span>
+    [email* submit-email placeholder "john.website@example.com"]
+  </label>
+</div>
+
+<div class="page-submit__form__checkboxes">
+  <h2 class="ct-cf7-title">How can we help you?</h2>
+  <label class="ct-cf7-item">
+    [checkbox submit-checkbox use_label_element "I would require Villa Management Services" "I would like to list my villa(s)"]
+  </label>
+</div>
+
+<div class="page-submit__form__villa">
+  <h2 class="ct-cf7-title">Villa Information</h2>
+
+  <label class="ct-cf7-item">
+    <span class="ct-cf7-label">Villa name<b>*</b></span>
+    [text* submit-villa-name placeholder "Ex. Villa Amarapura"]
+  </label>
+
+  <label class="ct-cf7-item">
+    <span class="ct-cf7-label">Villa website (if any)</span>
+    [url submit-villa-site placeholder "https://amarapuraphuket.com/"]
+  </label>
+
+  <label class="ct-cf7-item">
+    <span class="ct-cf7-label">Villa address<b>*</b></span>
+    [text* submit-villa-adress placeholder "Ex. 123 Country Road, Phuket, Thailand 83000"]
+  </label>
+
+  <label class="ct-cf7-item">
+    <span class="ct-cf7-label">Message<b>*</b></span>
+    [textarea* submit-message x3 placeholder "Text your message here"]
+  </label>
+</div>
+
+<div class="ct-cf7-submit">[submit "Submit"]</div>

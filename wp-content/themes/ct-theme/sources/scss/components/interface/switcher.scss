@@ -1,0 +1,45 @@
+.interface-switcher {
+  &-label {
+    color: var(--color-primary-black);
+    font-family: var(--font-site-main);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    margin-bottom: 6px;
+    display: inline-block;
+  }
+  
+  &__toggle {
+    padding: 4px;
+    border-radius: 100px;
+    border: 1px solid var(--color-secondary-lightgrey);
+    background: var(--color-primary-white);
+    display: inline-flex;
+    align-items: center;
+
+    label {
+      input {
+        display: none;
+        &:checked + span {
+          background: #ffe9ee;
+          color: var(--color-primary-pink);
+        }
+      }
+      span {
+        display: block;
+        padding: 8px 24px;
+        border-radius: 100px;
+
+        color: var(--color-secondary-darkgrey);
+        font-family: var(--font-main-site);
+        text-align: center;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+  }
+}

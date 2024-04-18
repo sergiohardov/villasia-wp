@@ -1,0 +1,40 @@
+.page-404 {
+  &__content {
+    padding: 120px 0;
+    @media (max-width: $bp-sm) {
+      padding-top: 50px;
+      padding-bottom: 40px;
+    }
+  }
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+  &__title {
+    color: var(--color-primary-pink);
+    text-align: center;
+    font-family: var(--font-site-main);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 160%;
+    letter-spacing: 0.8px;
+
+    max-width: 769px;
+    margin: 0 auto;
+
+    @media (max-width: $bp-sm) {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 166.667%;
+      letter-spacing: unset;
+    }
+  }
+  .slider-locations {
+    margin-bottom: 80px;
+    @media (max-width: $bp-sm) {
+      margin-bottom: 56px;
+    }
+  }
+}

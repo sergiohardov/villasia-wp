@@ -1,0 +1,109 @@
+.page-wishlist {
+  // padding: 32px 0;
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+  }
+  &__main {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    width: 100%;
+    .map-open & {
+      width: 65%;
+    }
+  }
+  &__map {
+    margin-right: calc(-50vw + 50%);
+    flex: 1;
+    height: calc(100vh - var(--site-header-height));
+    position: sticky;
+    top: var(--site-header-height);
+    display: none;
+    &-close {
+      position: absolute;
+      z-index: 2;
+      top: 12px;
+      right: 12px;
+      width: 28px;
+      height: 28px;
+      min-height: 28px;
+      padding: 0;
+      margin: 0;
+      background: var(--color-primary-white);
+      border-radius: 4px;
+      box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.15);
+      i {
+        --icon-size: 16px;
+        --icon-color: var(--color-primary-black);
+      }
+    }
+    @media (max-width: $bp-md) {
+      position: fixed;
+      z-index: 99;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      .google-map__controlls__full {
+        display: none;
+      }
+    }
+    .map-open & {
+      display: block;
+    }
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 25px;
+  }
+  &__controlls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    // TODO: Fix/create styles
+    @media (max-width: $bp-md) {
+      display: none;
+    }
+    &-sort {
+      min-width: 299px;
+    }
+    &-map {
+      min-width: 196px;
+      .map-open & {
+        display: none;
+      }
+    }
+  }
+  &__title {
+    color: var(--color-primary-black);
+    font-family: var(--font-site-main);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.6px;
+    @media (max-width: $bp-md) {
+      font-size: 32px;
+      letter-spacing: -0.48px;
+    }
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 24px;
+    row-gap: 37px;
+    .map-open & {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: $bp-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: $bp-md) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

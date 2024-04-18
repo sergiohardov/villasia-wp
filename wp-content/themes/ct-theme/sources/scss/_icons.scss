@@ -1,0 +1,117 @@
+.ct-icon {
+  @include icon();
+
+  /* Outline */
+  &--outline-more {
+    --icon-svg: url("../svg/outline/more.svg");
+  }
+  &--outline-favorite {
+    --icon-svg: url("../svg/outline/favorite.svg");
+  }
+  &--outline-search {
+    --icon-svg: url("../svg/outline/search.svg");
+  }
+  &--outline-menu {
+    --icon-svg: url("../svg/outline/menu.svg");
+  }
+  &--outline-close {
+    --icon-svg: url("../svg/outline/close.svg");
+  }
+  &--outline-date {
+    --icon-svg: url("../svg/outline/date.svg");
+  }
+  &--outline-next {
+    --icon-svg: url("../svg/outline/next.svg");
+  }
+  &--outline-viewall {
+    --icon-svg: url("../svg/outline/viewall.svg");
+  }
+  &--outline-wifi {
+    --icon-svg: url("../svg/outline/wifi.svg");
+  }
+  &--outline-check {
+    --icon-svg: url("../svg/outline/check.svg");
+  }
+  &--outline-plus {
+    --icon-svg: url("../svg/outline/plus.svg");
+  }
+  &--outline-minus {
+    --icon-svg: url("../svg/outline/minus.svg");
+  }
+  &--outline-filter {
+    --icon-svg: url("../svg/outline/filter.svg");
+  }
+  &--outline-zoom-in {
+    --icon-svg: url("../svg/outline/zoom_in_map.svg");
+  }
+  &--outline-zoom-out {
+    --icon-svg: url("../svg/outline/zoom_out_map.svg");
+  }
+
+  /* Fill */
+  &--fill-star {
+    --icon-svg: url("../svg/fill/star.svg");
+  }
+  &--fill-download {
+    --icon-svg: url("../svg/fill/download.svg");
+  }
+  &--fill-favorite {
+    --icon-svg: url("../svg/fill/add_favorite.svg");
+  }
+  &--fill-bed {
+    --icon-svg: url("../svg/fill/bed.svg");
+  }
+  &--fill-map {
+    --icon-svg: url("../svg/fill/map.svg");
+  }
+  &--fill-person {
+    --icon-svg: url("../svg/fill/person.svg");
+  }
+  &--fill-award {
+    --icon-svg: url("../svg/fill/award.svg");
+  }
+  &--fill-image {
+    --icon-svg: url("../svg/fill/image.svg");
+  }
+  &--fill-bathtub {
+    --icon-svg: url("../svg/fill/bathtub.svg");
+  }
+  &--fill-lift {
+    --icon-svg: url("../svg/fill/lift.svg");
+  }
+  &--fill-car_driver {
+    --icon-svg: url("../svg/fill/car_driver.svg");
+  }
+  &--fill-private_pool {
+    --icon-svg: url("../svg/fill/private_pool.svg");
+  }
+  &--fill-private_chef {
+    --icon-svg: url("../svg/fill/private_chef.svg");
+  }
+  &--fill-daily_breakfast {
+    --icon-svg: url("../svg/fill/daily_breakfast.svg");
+  }
+  &--fill-gym_room {
+    --icon-svg: url("../svg/fill/gym_room.svg");
+  }
+  &--fill-daily_maid {
+    --icon-svg: url("../svg/fill/daily_maid.svg");
+  }
+  &--fill-cinema_room {
+    --icon-svg: url("../svg/fill/cinema_room.svg");
+  }
+  &--fill-bbq {
+    --icon-svg: url("../svg/fill/bbq.svg");
+  }
+  &--fill-home {
+    --icon-svg: url("../svg/fill/home.svg");
+  }
+}
+i.ct-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  &:after {
+    content: "";
+  }
+}

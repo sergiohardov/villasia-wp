@@ -1,0 +1,197 @@
+.villa-overview {
+  scroll-margin: calc(var(--site-header-height) + 50px);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    @media (max-width: $bp-md) {
+      margin-bottom: 6px;
+    }
+    &-title {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+
+      color: var(--color-primary-black);
+      font-family: var(--font-site-main);
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: ltspc(-1.5, 32);
+
+      @media (max-width: $bp-sm) {
+        font-size: 24px;
+        letter-spacing: unset;
+      }
+
+      i {
+        margin-top: 14px;
+        --icon-size: 32px;
+        --icon-color: var(--color-primary-pink);
+        @media (max-width: $bp-sm) {
+          margin-top: 0;
+          --icon-size: 24px;
+        }
+      }
+    }
+    &-controls {
+      display: flex;
+      gap: 24px;
+      &__rating {
+        @media (max-width: $bp-lg) {
+          display: none;
+        }
+      }
+    }
+  }
+  &__details {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    @media (max-width: $bp-sm) {
+      margin-bottom: 24px;
+    }
+    &-info {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      @media (max-width: $bp-md) {
+        gap: 8px;
+        flex-direction: column;
+        align-items: start;
+      }
+
+      span {
+        --icon-size: 24px;
+        --icon-color: var(--color-secondary-darkgrey);
+
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        color: var(--color-secondary-darkgrey);
+        font-family: var(--font-site-main);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+
+        @media (max-width: $bp-sm) {
+          --icon-size: 18px;
+          font-size: 12px;
+        }
+      }
+    }
+    &-rating {
+      display: none;
+      @media (max-width: $bp-lg) {
+        display: block;
+      }
+    }
+  }
+  &__content {
+    color: var(--color-primary-black);
+    font-family: var(--font-site-main);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 225%;
+    letter-spacing: ltspc(2, 14);
+    @media (max-width: $bp-sm) {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 214.286%;
+      letter-spacing: 0.28px;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+
+    @media (max-width: $bp-sm) {
+      order: 1;
+      gap: 8px;
+    }
+
+    &-rate {
+      --icon-size: 24px;
+      --icon-color: var(--color-primary-pink);
+
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 12px;
+      background: #ffe9ee;
+      border-radius: 6px;
+
+      color: var(--color-primary-pink);
+      font-family: var(--font-site-main);
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 145.455%;
+
+      @media (max-width: $bp-sm) {
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+    &-link {
+      color: var(--color-primary-black);
+      font-family: var(--font-site-main);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      text-decoration-line: underline;
+      text-align: right;
+      text-wrap: nowrap;
+    }
+  }
+  &__fav {
+    @include btn();
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    height: 48px;
+    width: 48px;
+    padding: 0;
+
+    background: var(--color-primary-white);
+    border: 1px solid var(--color-secondary-darkgrey);
+    border-radius: 100px;
+    align-self: flex-start;
+    box-shadow: 4px 4px 10px #0000000d;
+
+    .page-villa[data-in-wishlist="1"] & {
+      border: 1px solid var(--color-primary-pink);
+
+      i {
+        --icon-svg: url("../svg/fill/add_favorite.svg");
+        --icon-color: var(--color-primary-pink);
+      }
+    }
+
+    i {
+      --icon-size: 24px;
+      --icon-color: var(--color-primary-black);
+      --icon-svg: url("../svg/outline/favorite.svg");
+    }
+  }
+}

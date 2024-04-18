@@ -1,0 +1,57 @@
+.interface-range {  
+  &-label {
+    color: var(--color-primary-black);
+    font-family: var(--font-site-main);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    margin-bottom: 6px;
+    display: inline-block;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__inputs {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 24px;
+    input {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 2px;
+      width: 100%;
+      position: absolute;
+
+      background-color: #c6c6c6;
+      pointer-events: none;
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        pointer-events: all;
+        width: 23px;
+        height: 23px;
+        background-color: var(--color-primary-pink);
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      &::-moz-range-thumb {
+        -webkit-appearance: none;
+        pointer-events: all;
+        width: 23px;
+        height: 23px;
+        background-color: var(--color-primary-pink);
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      &:first-child {
+        height: 0;
+        z-index: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+.interface-check {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  &--left,
+  &--right {
+    flex: 1px;
+  }
+  &--right {
+    border-left: 1px solid #dedede;
+    padding-left: 18px;
+  }
+
+  .datepicker {
+    top: 100%;
+    margin-top: 8px;
+    border: 1px solid #bbbbbb;
+    border-radius: 6px;
+    width: auto;
+
+    display: block !important;
+    height: auto !important;
+    transition: 0.5s !important;
+
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+
+    &--open {
+      opacity: 1;
+      visibility: visible;
+      z-index: 50;
+    }
+    &__inner {
+      padding: 20px 16px;
+    }
+    &__month-caption {
+      border-bottom: unset;
+      th {
+        padding-bottom: 8px;
+      }
+    }
+    &__week-days {
+      height: auto;
+      vertical-align: middle;
+      th {
+        padding-bottom: 8px;
+      }
+    }
+    &__months {
+      display: flex;
+      gap: 32px;
+    }
+    &__month {
+      width: max-content;
+      height: max-content;
+      flex: 1;
+
+      border-collapse: separate;
+      border-spacing: 0 8px;
+      margin-bottom: -8px;
+    }
+    &__month-name {
+      color: var(--color-primary-black);
+      text-align: center;
+      text-transform: unset;
+
+      font-family: "Manrope", sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: calc(25 / 18);
+    }
+    &__week-name {
+      text-transform: unset;
+      padding: 0;
+      color: #9a9a9a;
+      text-align: center;
+      font-family: "Manrope", sans-serif;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: calc(14 / 10);
+    }
+    &__month-day {
+      padding: 0;
+      border: none;
+      width: 36px;
+      height: 36px;
+      text-align: center;
+      vertical-align: middle;
+
+      color: var(--color-primary-black);
+      font-family: "Manrope", sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: calc(19 / 14);
+
+      &--today {
+        background-color: transparent;
+        color: var(--color-primary-black);
+      }
+      &--hovering {
+        background-color: #ffe9ee;
+      }
+      &--selected {
+        background-color: #ffe9ee;
+      }
+      &--first-day-selected,
+      &--last-day-selected {
+        background-color: var(--color-primary-pink);
+        color: var(--color-primary-white);
+        border-radius: 6px;
+      }
+      &--invalid {
+        color: var(--color-secondary-lightgrey);
+      }
+      &--disabled {
+        color: var(--color-secondary-lightgrey);
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+}

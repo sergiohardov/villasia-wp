@@ -1,0 +1,45 @@
+.interface-destination {
+  &__clear {
+    position: absolute;
+    display: flex;
+    cursor: pointer;
+    right: 18px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: max-content;
+    width: max-content;
+    i {
+      --icon-color: var(--color-secondary-darkgrey);
+      --icon-size: 24px;
+    }
+  }
+  &__results {
+    position: absolute;
+    z-index: 10;
+
+    top: 100%;
+    margin-top: 8px;
+    left: 0;
+    width: 100%;
+    background: var(--color-primary-white);
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    span {
+      display: flex;
+      padding: 14px 60px;
+      color: var(--color-primary-black);
+      font-family: var(--font-site-main);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: calc(19 / 14);
+    }
+  }
+}

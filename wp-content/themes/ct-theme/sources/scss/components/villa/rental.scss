@@ -1,0 +1,71 @@
+.villa-rental {
+  padding: 40px 48px;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 85px;
+  background: var(--color-primary-white);
+  @media (max-width: $bp-sm) {
+    padding: 40px 24px;
+    row-gap: 32px;
+    grid-template-columns: unset;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  &__title {
+    color: var(--color-primary-black);
+    font-family: var(--font-site-main);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 145.455%;
+
+    margin-bottom: 16px;
+
+    @media (max-width: $bp-sm) {
+      margin-bottom: 24px;
+    }
+  }
+  &__content {
+    color: var(--color-primary-black);
+    font-family: var(--font-site-main);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 212.5%;
+
+    @media (max-width: $bp-sm) {
+      font-size: 14px;
+      line-height: normal;
+      letter-spacing: unset;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      @media (max-width: $bp-sm) {
+        gap: 16px;
+      }
+      li {
+        @include icon();
+
+        --icon-svg: url("../svg/outline/check.svg");
+        --icon-size: 24px;
+        --icon-color: var(--color-primary-pink);
+
+        &:before {
+          content: "";
+          transform: translateY(4px);
+          @media (max-width: $bp-sm) {
+            transform: translateY(0);
+          }
+        }
+
+        display: flex;
+        align-items: flex-start;
+        gap: 4px;
+      }
+    }
+  }
+}

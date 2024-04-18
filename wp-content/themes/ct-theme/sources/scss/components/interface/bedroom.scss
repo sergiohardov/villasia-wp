@@ -1,0 +1,51 @@
+.interface-bedroom {
+  .ct-interface-item__input {
+    cursor: pointer;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__controlls {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    min-width: max-content;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    padding: 16px;
+    margin-top: 8px;
+    border-radius: 6px;
+    background: var(--color-primary-white);
+    border: 1px solid var(--color-secondary-lightgrey);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+
+    @media (max-width: $bp-md) {
+      right: 0;
+      left: unset;
+    }
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    &-label {
+      color: var(--color-primary-black);
+      font-family: var(--font-site-main);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: calc(19 / 14);
+    }
+  }
+}

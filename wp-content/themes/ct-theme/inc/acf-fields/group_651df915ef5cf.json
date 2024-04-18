@@ -1,0 +1,157 @@
+{
+    "key": "group_651df915ef5cf",
+    "title": "Post Type: Rate (Main)",
+    "fields": [
+        {
+            "key": "field_651dfaa6247bf",
+            "label": "Rates",
+            "name": "rates",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 0,
+            "min": 1,
+            "max": 0,
+            "collapsed": "field_651dfac2247c0",
+            "button_label": "Add Season",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_651dfac2247c0",
+                    "label": "Season Name",
+                    "name": "season_name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_651dfaa6247bf"
+                },
+                {
+                    "key": "field_651dfad3247c1",
+                    "label": "Minimum Stay (nights)",
+                    "name": "minimum_stay",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_651dfaa6247bf"
+                },
+                {
+                    "key": "field_651dfaf0247c2",
+                    "label": "Travels Dates",
+                    "name": "travels_dates",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "min": 1,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Dates",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_651dfb09247c3",
+                            "label": "Date Start",
+                            "name": "date_start",
+                            "aria-label": "",
+                            "type": "date_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "display_format": "d\/m\/Y",
+                            "return_format": "j M Y",
+                            "first_day": 1,
+                            "parent_repeater": "field_651dfaf0247c2"
+                        },
+                        {
+                            "key": "field_651dfb29247c4",
+                            "label": "Date End",
+                            "name": "date_end",
+                            "aria-label": "",
+                            "type": "date_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "display_format": "d\/m\/Y",
+                            "return_format": "j M Y",
+                            "first_day": 1,
+                            "parent_repeater": "field_651dfaf0247c2"
+                        }
+                    ],
+                    "parent_repeater": "field_651dfaa6247bf"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "rate"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "permalink"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1703775983
+}

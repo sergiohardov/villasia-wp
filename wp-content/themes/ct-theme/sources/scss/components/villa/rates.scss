@@ -1,0 +1,201 @@
+.villa-rates {
+  scroll-margin: calc(var(--site-header-height) + 60px);
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  &__title {
+    color: var(--color-primary-black);
+    font-family: var(--font-site-main);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    @media (max-width: $bp-sm) {
+      font-size: 24px;
+      letter-spacing: unset;
+    }
+  }
+  &__select {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    &-label {
+      color: var(--color-secondary-darkgrey);
+      font-family: var(--font-site-main);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+
+      @media (max-width: $bp-sm) {
+        display: none;
+      }
+    }
+    &-options {
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: var(--color-primary-white);
+      border: 1px solid var(--color-secondary-darkgrey);
+      min-width: 144px;
+      appearance: none;
+
+      color: var(--color-primary-black);
+      font-family: var(--font-site-main);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+
+      background-image: url("../svg/outline/more.svg");
+      background-repeat: no-repeat;
+      background-position: calc(100% - 10px) center;
+      background-size: 16px 16px;
+    }
+  }
+  // TODO: Adaptive
+  &__tables {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  &__table {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 48px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    thead {
+      background: #ffe9ee;
+      th {
+        color: var(--color-primary-pink);
+        font-family: var(--font-site-main);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        vertical-align: middle;
+      }
+    }
+    tbody {
+      background: var(--color-primary-white);
+      td {
+        color: var(--color-primary-black);
+        font-family: var(--font-site-main);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+
+        vertical-align: middle;
+      }
+      tr {
+        &:not(:last-child) {
+          border-bottom: 1px solid var(--color-secondary-lightgrey);
+        }
+      }
+      strong {
+        color: var(--color-primary-black);
+        font-family: var(--font-site-main);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+    td,
+    th {
+      padding: 16px 10px;
+      text-align: center;
+    }
+  }
+  &__conditions {
+    &-accordion {
+      border-top: 1px solid var(--color-secondary-darkgrey);
+      transition: 0.3s;
+      &.active {
+        padding-bottom: 20px;
+      }
+    }
+    &-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      color: var(--color-primary-black);
+      cursor: pointer;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: var(--color-primary-pink);
+          i {
+            --icon-color: var(--color-primary-pink);
+          }
+        }
+      }
+
+      .villa-rates__conditions-accordion.active & {
+        color: var(--color-primary-pink);
+        i {
+          --icon-color: var(--color-primary-pink);
+        }
+      }
+    }
+    &-title {
+      font-family: var(--font-site-main);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 145.455%;
+
+      @media (max-width: $bp-sm) {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+    &-btn {
+      width: max-content;
+      min-height: max-content;
+      padding: 0;
+      background: transparent;
+      i {
+        --icon-size: 32px;
+        --icon-svg: url("../svg/outline/plus.svg");
+        .active & {
+          --icon-svg: url("../svg/outline/minus.svg");
+        }
+      }
+    }
+    &-content {
+      overflow: hidden;
+      color: var(--color-primary-black);
+      font-family: var(--font-site-main);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 212.5%;
+      letter-spacing: ltspc(2, 14);
+
+      @media (max-width: $bp-sm) {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 214.286%;
+        letter-spacing: 0.28px;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.villa-metabox-price {
+  position: relative;
+  &__spinner {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  #villaMetaboxPriceRowClone {
+    display: none;
+  }
+}

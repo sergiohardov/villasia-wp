@@ -1,0 +1,111 @@
+.page-villa {
+  .site-breadcrumbs {
+    padding: 32px 0 16px 0;
+    &--desk {
+      @media (max-width: $bp-md) {
+        display: none;
+      }
+    }
+    &--mob {
+      display: none;
+      i {
+        --icon-color: var(--color-primary-pink);
+        --icon-size: 16px;
+        transform: rotate(180deg);
+      }
+      a {
+        font-size: 12px;
+      }
+      @media (max-width: $bp-md) {
+        display: flex;
+      }
+    }
+  }
+  &-content {
+    margin-top: 32px;
+    margin-bottom: 64px;
+    @media (max-width: $bp-md) {
+      margin-top: 24px;
+      margin-bottom: 64px;
+    }
+    &__inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 282px;
+      gap: 24px;
+      @media (max-width: $bp-md) {
+        display: block;
+      }
+    }
+    &__main {
+      grid-column: 1/2;
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      @media (max-width: $bp-md) {
+        gap: 64px;
+      }
+    }
+    &__sidebar {
+      grid-column: 2/3;
+      @media (max-width: $bp-md) {
+        position: fixed;
+        top: var(--site-header-height);
+        left: 0;
+        width: 100%;
+        height: calc(100% - var(--site-header-height));
+        z-index: 15;
+        display: none;
+        &.active {
+          display: block;
+        }
+      }
+      &-close {
+        display: none;
+        position: absolute;
+        top: 16px;
+        right: 24px;
+        z-index: 20;
+        min-height: max-content;
+        height: max-content;
+        width: max-content;
+        padding: 0;
+        background: transparent;
+        i {
+          --icon-size: 32px;
+        }
+        @media (max-width: $bp-md) {
+          display: flex;
+        }
+      }
+    }
+    &__mob {
+      display: none;
+
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      padding: 20px;
+      background: var(--color-primary-white);
+      box-shadow: 3px 6px 20px 2px rgba(0, 0, 0, 0.2);
+      &-btn {
+        width: 100%;
+      }
+      @media (max-width: $bp-md) {
+        display: block;
+      }
+    }
+  }
+  .card-booking {
+    position: sticky;
+    top: calc(var(--site-header-height) + 82px);
+    z-index: 10;
+    @media (max-width: $bp-md) {
+      position: relative;
+      top: 0;
+      height: 100%;
+      border-radius: 0;
+    }
+  }
+}

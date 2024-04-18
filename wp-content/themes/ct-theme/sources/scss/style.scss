@@ -1,0 +1,74 @@
+/* Base */
+@import "functions";
+@import "scssvars";
+@import "cssvars";
+@import "mixins";
+@import "libs";
+@import "fonts";
+@import "base";
+@import "icons";
+@import "theme";
+
+/* Components */
+// Site
+@import "./components/site/header";
+@import "./components/site/menu";
+@import "./components/site/popular";
+@import "./components/site/footer";
+@import "./components/site/breadcrumbs";
+
+// Home
+@import "./components/home/hero";
+@import "./components/home/promotions";
+@import "./components/home/blog";
+@import "./components/home/instagram";
+
+// Villa
+@import "./components/villa/gallery";
+@import "./components/villa/navigation";
+@import "./components/villa/overview";
+@import "./components/villa/keyfeature";
+@import "./components/villa/rental";
+@import "./components/villa/bedrooms";
+@import "./components/villa/rates";
+@import "./components/villa/reviews";
+@import "./components/villa/location";
+@import "./components/villa/related";
+
+// Card
+@import "./components/card/booking";
+@import "./components/card/villa";
+@import "./components/card/post";
+@import "./components/card/inquiry";
+
+// Hero
+@import "./components/hero/simple";
+
+// Interface
+@import "./components/interface/counter";
+@import "./components/interface/destination";
+@import "./components/interface/check";
+@import "./components/interface/bedroom";
+@import "./components/interface/guests";
+@import "./components/interface/range";
+@import "./components/interface/switcher";
+
+// Other
+@import "./components/search/bar";
+@import "./components/slider-locations";
+@import "./components/villas-map";
+
+/* Pages */
+@import "./page/home";
+@import "./page/villa";
+@import "./page/404";
+@import "./page/about";
+@import "./page/post";
+@import "./page/blog";
+@import "./page/wishlist";
+@import "./page/general";
+@import "./page/managment";
+@import "./page/submit";
+@import "./page/contact";
+@import "./page/inquiry";
+@import "./page/thankyou";

@@ -1,0 +1,16 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_1111_569358" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+<path d="M24 0H0V24H24V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_1111_569358)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2 21H3V22H2V21Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M21 22V21H22V22H21Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.54581 13.0909H10.6018V9.90909H6.54581V13.0909ZM5.63672 9.45455V13.5455C5.63672 13.7965 5.84022 14 6.09132 14H11.0563C11.3073 14 11.5108 13.7965 11.5108 13.5455V9.45455C11.5108 9.20351 11.3073 9 11.0563 9H6.09132C5.84022 9 5.63672 9.20351 5.63672 9.45455Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.4013 13.0909H17.4572V9.90909H13.4013V13.0909ZM12.4922 9.45455V13.5455C12.4922 13.7965 12.6957 14 12.9467 14H17.9118C18.1628 14 18.3663 13.7965 18.3663 13.5455V9.45455C18.3663 9.20351 18.1628 9 17.9118 9H12.9467C12.6957 9 12.4922 9.20351 12.4922 9.45455Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2 18V20V21H2.9091H21.0909H22V20V18H21.0909V20H2.9091V18H2Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20.5 10.5H19.5V9.5H20.5C21.3284 9.5 22 10.1716 22 11V16H20.5V15H21V11C21 10.7239 20.7761 10.5 20.5 10.5Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2 11C2 10.1716 2.6716 9.5 3.5 9.5H4.5V10.5H3.5C3.2239 10.5 3 10.7239 3 11V15H3.5V16H2V11Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.2727 9V12.24L2.3788 17.04L2 18H2.9848H21.0152H22L21.6212 17.04L19.7273 12.24V9H18.8182V12.24H18.3642V13.2H18.8182H19.1212L20.6364 17.04H3.3636L4.8788 13.2H5.1818H5.6364V12.24H5.1818V9H4.2727ZM12.4901 12.24H11.5105V13.2H12.4901V12.24Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.63714 7.96C5.38604 7.96 5.18254 8.1749 5.18254 8.44V9H4.27344V8.44C4.27344 7.64471 4.88404 7 5.63714 7H18.3643C19.1175 7 19.728 7.64471 19.728 8.44V9H18.8189V8.44C18.8189 8.1749 18.6154 7.96 18.3643 7.96H5.63714Z" fill="black"/>
+</g>
+</svg>

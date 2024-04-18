@@ -1,0 +1,42 @@
+.villa-related {
+  margin-bottom: 80px;
+  @media (max-width: $bp-sm) {
+    margin-bottom: 56px;
+  }
+  &__title {
+    margin-bottom: 24px;
+
+    color: var(--color-primary-black);
+    font-family: var(--font-site-main);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    @media (max-width: $bp-sm) {
+      font-size: 24px;
+      letter-spacing: unset;
+      margin-bottom: 16px;
+    }
+  }
+  &__pagination {
+    display: none;
+    @media (max-width: $bp-lg) {
+      --swiper-pagination-bottom: 0;
+      --swiper-pagination-top: 0;
+      --swiper-pagination-bullet-horizontal-gap: 0;
+      --swiper-pagination-bullet-width: 8px;
+      --swiper-pagination-bullet-height: 8px;
+      --swiper-pagination-color: var(--color-primary-black);
+      --swiper-pagination-bullet-inactive-color: #000;
+      --swiper-pagination-bullet-inactive-opacity: 0.2;
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 16px;
+    }
+  }
+}

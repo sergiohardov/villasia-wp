@@ -1,0 +1,32 @@
+.page-home {
+  .home-hero {
+    margin-bottom: 48px;
+    @media (max-width: $bp-md) {
+      margin-bottom: 40px;
+    }
+  }
+  .slider-locations {
+    margin-bottom: 80px;
+    @media (max-width: $bp-md) {
+      margin-bottom: 48px;
+    }
+  }
+  .home-promotions {
+    margin-bottom: 80px;
+    @media (max-width: $bp-md) {
+      margin-bottom: 48px;
+    }
+  }
+  .home-blog {
+    margin-bottom: 80px;
+    @media (max-width: $bp-md) {
+      margin-bottom: 64px;
+    }
+  }
+  .home-instagram {
+    margin-bottom: 120px;
+    @media (max-width: $bp-md) {
+      margin-bottom: 32px;
+    }
+  }
+}

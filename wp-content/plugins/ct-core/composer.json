@@ -1,0 +1,20 @@
+{
+  "name": "sergiohardov/ct-core",
+  "description": "Core plugin for CT Theme",
+  "type": "project",
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "Sergio Hardov",
+      "email": "sergiohardov@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "CTCore\\": "./includes"
+    }
+  },
+  "require": {
+    "johngrogg/ics-parser": "^3"
+  }
+}

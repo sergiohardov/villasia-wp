@@ -1,0 +1,54 @@
+.interface-counter {
+  height: 36px;
+  width: max-content;
+  border: 1px solid var(--color-secondary-lightgrey);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  &__minus,
+  &__plus {
+    min-height: unset;
+    height: 100%;
+    width: 36px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary-white);
+    i {
+      --icon-size: 20px;
+      --icon-color: var(--color-primary-black);
+    }
+  }
+  &__input {
+    height: 100%;
+    width: 6ch;
+    outline: none;
+    border: none;
+    border-left: 1px solid var(--color-secondary-lightgrey);
+    border-right: 1px solid var(--color-secondary-lightgrey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary-white);
+
+    color: var(--color-primary-black);
+    font-family: var(--font-site-main);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}

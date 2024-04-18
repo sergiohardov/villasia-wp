@@ -1,0 +1,31 @@
+[hidden contact-villa-name]
+[hidden contact-location]
+[hidden contact-price]
+[hidden contact-nights]
+[hidden contact-check-in]
+[hidden contact-check-out]
+[hidden contact-bedroom]
+
+<label class="ct-cf7-item ct-cf7-item__name">
+  <span class="ct-cf7-label">Full name<b>*</b></span>
+  [text* contact-fullname placeholder "Ex. John Website"]
+</label>
+
+<label class="ct-cf7-item ct-cf7-item__phone">
+  <span class="ct-cf7-label">Mobile<b>*</b></span>
+  [tel* contact-mobile placeholder "+66 12 345 6789"]
+</label>
+
+<label class="ct-cf7-item ct-cf7-item__email">
+  <span class="ct-cf7-label">Email<b>*</b></span>
+  [email* contact-email placeholder "john.website@example.com"]
+</label>
+
+[cf7_additional_inquiry]
+
+<label class="ct-cf7-item ct-cf7-item__message">
+  <span class="ct-cf7-label">Message<b>*</b></span>
+  [textarea* contact-message x3 placeholder "Text your message here"]
+</label>
+
+<div class="ct-cf7-submit">[submit "Submit Now"]</div>

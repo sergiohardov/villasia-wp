@@ -1,0 +1,24 @@
+.site-breadcrumbs {
+  font-family: var(--font-site-main);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  
+  &__inner {
+    & > span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+  i {
+    --icon-size: 16px;
+  }
+  a {
+    color: var(--color-primary-pink);
+  }
+  .breadcrumb_last {
+    color: var(--color-primary-black);
+  }
+}

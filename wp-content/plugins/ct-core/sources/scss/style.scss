@@ -1,0 +1,40 @@
+@import "cssvars";
+
+// Villa
+@import "villa/page-rating";
+@import "villa/metabox-price";
+
+// Import
+@import "import/page";
+
+@import "bootstrap";
+
+#adminmenu {
+  #menu-posts-owner,
+  #menu-posts-villa,
+  #menu-posts-rate,
+  #menu-posts-promotion,
+  #toplevel_page_ct-core-currency,
+  #toplevel_page_theme-settings-global,
+  #toplevel_page_ctcore-import-page {
+    &.wp-has-current-submenu {
+      .wp-submenu {
+        background: var(--color-primary-pink-50);
+        a:hover {
+          color: var(--color-primary-white);
+        }
+      }
+    }
+    a.menu-top {
+      background-color: var(--color-primary-pink);
+      color: #f0f0f1;
+    }
+    div.wp-menu-image:before {
+      color: rgba(240, 246, 252, 0.6);
+    }
+    a.wp-has-current-submenu {
+      background: var(--color-primary-pink);
+      color: var(--color-primary-white);
+    }
+  }
+}

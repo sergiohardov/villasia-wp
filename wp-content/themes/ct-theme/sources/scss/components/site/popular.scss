@@ -1,0 +1,102 @@
+.site-popular {
+  background: #eeeeee;
+  padding: 30px 0;
+  .ct-tabs {
+    &__nav {
+      display: none;
+
+      @media (max-width: $bp-md) {
+        display: flex;
+        border-bottom: 1px solid var(--color-secondary-lightgrey);
+        margin-bottom: 18px;
+      }
+      &-item {
+        padding: 16px 8px;
+        flex-shrink: 0;
+        font-family: var(--font-site-main);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+    &__content {
+      display: grid;
+      grid-template-columns: 6fr 1fr 5fr;
+      grid-template-rows: 1fr;
+      gap: 0px 24px;
+      grid-template-areas: ". . .";
+
+      @media (max-width: $bp-xl) {
+        grid-template-columns: 5fr 1fr 6fr;
+      }
+      @media (max-width: $bp-md) {
+        display: block;
+      }
+      &-item {
+        padding: 0;
+        display: block;
+        @media (max-width: $bp-md) {
+          display: none;
+          &--active {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  &__line {
+    display: block;
+    height: 100%;
+    width: 1px;
+    margin: 0 auto;
+    background: var(--color-secondary-lightgrey);
+    @media (max-width: $bp-md) {
+      display: none;
+    }
+  }
+  &__title {
+    font-family: var(--font-site-main);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    margin-bottom: 16px;
+
+    @media (max-width: $bp-md) {
+      display: none;
+    }
+  }
+  &__list {
+    display: grid;
+    gap: 0px 15px;
+    &--left {
+      grid-template-columns: 1fr 1fr 1fr;
+      @media (max-width: $bp-xl) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    &--right {
+      grid-template-columns: 1fr 1fr;
+      @media (max-width: $bp-sm) {
+        grid-template-columns: 1fr;
+      }
+    }
+    li {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    a {
+      font-family: var(--font-site-main);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 266.667%;
+      letter-spacing: 0.24px;
+      color: var(--color-primary-black);
+    }
+  }
+}

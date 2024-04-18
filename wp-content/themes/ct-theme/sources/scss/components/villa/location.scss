@@ -1,0 +1,47 @@
+.villa-location {
+  scroll-margin: calc(var(--site-header-height) + 60px);
+  &__title {
+    color: var(--color-primary-black);
+    font-family: var(--font-site-main);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    margin-bottom: 24px;
+
+    @media (max-width: $bp-sm) {
+      font-size: 24px;
+      letter-spacing: unset;
+      margin-bottom: 16px;
+    }
+  }
+  &__map {
+    width: 100%;
+    aspect-ratio: calc(894 / 480);
+    background: #aeaeae;
+    margin-bottom: 24px;
+    @media (max-width: $bp-sm) {
+      aspect-ratio: calc(342 / 400);
+      margin-bottom: 16px;
+    }
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__desc {
+    color: var(--color-primary-black);
+    font-family: var(--font-site-main);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 212.5%;
+    letter-spacing: ltspc(2, 14);
+    @media (max-width: $bp-sm) {
+      font-size: 14px;
+      line-height: 214.286%;
+      letter-spacing: 0.28px;
+    }
+  }
+}
