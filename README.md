@@ -1,123 +1,116 @@
-# VillAsia Project Structure
+# Villasia — Luxury Villa Rental Platform
 
-The project is divided into two structures: **presentation - theme** and **core - plugin**. Each structure has its own gulpfile.js
+Custom WordPress platform for **Villasia**, an agency renting luxury villas across Asia (Thailand, Indonesia, Sri Lanka).
+Built at Artsel in 2023–2024: I developed the core plugin and the theme from the client's specifications and wireframes.
 
-**Plugin**: wp-content/plugins/ct-core
+> This repository contains only the custom code (`wp-content`): the `ct-core` plugin and the `ct-theme` theme.
+> WordPress core, uploads and production configuration are not included.
 
-**Theme**: wp-content/themes/ct-theme
+## What it does
 
-Before starting work on any part of the project, while in the root of the necessary structure, it is necessary to install packages:
+### Pricing engine
+Calculates the total stay cost from a villa's **seasonal rate card**:
+- splits a stay across seasons when the dates overlap two or more of them
+- applies promotions, then service charge and taxes on top
+- supports per-bedroom rates and whole-villa rates
+- covers four display scenarios: dates + discounts (crossed-out price and *Special Offer* badge), dates without discounts, no dates (*from …* nightly price) and *Price on Request*
+
+### Promotion engine
+Owners and managers set up promotions per rate card, and the engine picks what applies to each search:
+- **types:** Early Bird, Last Minute, Long Stay and seasonal special deals
+- **rules:** bookable period, stay dates, excluded periods, minimum length of stay, bedroom-rate scope
+- **combining:** combinable promotions are summed; otherwise the best single discount wins
+- excluded nights are priced at the regular rate while the rest of the stay keeps the discount
+
+### Villa & owner management (WP admin)
+- Owners with their villas, rate cards, rental conditions and promotions in custom metaboxes
+- Villa cloning (with all custom data), owner conditions inherited by villas in read-only mode
+- Destinations hierarchy: country → city → area
+- Key features / amenities used as search filters
+
+### Integrations
+- **Availability sync:** iCal feeds imported on a schedule (WP-Cron + `johngrogg/ics-parser`)
+- **Bulk import:** villas and photos imported from Dropbox through a custom REST API
+- **Google Maps:** place lookup, location data, and ratings & reviews import
+- **Multi-currency:** exchange rates from FreeCurrencyAPI with a currency switcher
+
+### Front end
+- Search with dates, guests, bedrooms and filters, plus a results map with synced thumbnails
+- Villa pages with seasonal rates, promotions, reviews and an inquiry form
+- Wishlist, destination and theme landing pages, a "Submit your villa" form for owners
+
+## Architecture
+
+The plugin follows a simple **MVC** structure on top of WordPress hooks:
+
+```
+wp-content/plugins/ct-core/
+├── ct-core.php            # bootstrap, constants, autoload
+├── includes/
+│   ├── MVC/
+│   │   ├── Controller/    # Villa, Owner, Rate, Price, Promotion, Search, Import, Ical, Currency, Wishlist…
+│   │   ├── Model/         # data access for villas, owners, rates, promotions, iCal, currency
+│   │   └── View/          # admin screens and metabox rendering
+│   ├── REST/              # Import and Ratings endpoints
+│   ├── API/               # Dropbox, Google Maps and FreeCurrency clients
+│   ├── CRON/              # scheduled iCal availability sync
+│   └── SYS/               # ACF settings, AJAX handlers, helpers
+├── templates/             # admin metabox and page templates
+└── sources/               # JS / SCSS for admin UI (build with Gulp)
+
+wp-content/themes/ct-theme/
+├── inc/                   # theme setup and helpers
+├── template-pages/        # page templates
+├── template-parts/        # reusable blocks
+├── template-forms/        # inquiry and owner forms
+└── sources/               # JS / SCSS sources (build with Gulp)
+```
+
+- **Pricing** lives in `Controller/Price.php`: nights split by season, promotion eligibility checks (bookable period, stay dates, excluded days, bedroom scope) and the final discount.
+- **Promotions** are a custom post type with validation of combinable offers on save (`Controller/Promotion.php`).
+- API keys for third-party services are managed from an ACF options page.
+
+## Tech stack
+
+PHP (OOP, MVC) · WordPress · Advanced Custom Fields Pro · WP REST API · WP-Cron · Composer · JavaScript · SCSS · Gulp · Dropbox API · Google Maps / Places API · FreeCurrencyAPI · iCal
+
+## Scale
+
+- ~5,700 lines of PHP in the core plugin and ~13,000 lines of PHP / JS / SCSS in the theme
+- 14 controllers, 15 custom REST endpoints
+- Built from a 140+ page specification: back-end and front-end wireframes, pricing rules and promotion test cases
+
+## Development
+
+The theme and the plugin each have their own Gulp build. From the root of the part you work on:
 
 ```bash
 npm install
+npm run start   # interactive list of tasks
 ```
 
-After we have installed all the packages, to see the list of commands, it is necessary to execute:
+| Task | What it does |
+|---|---|
+| Run Develop Mode | watcher with live reload |
+| Run Build | compiles `sources/` into `assets/` |
+| Compile Fonts / SVG / Libs | rebuilds only that asset type; can run alongside Develop Mode |
 
-```bash
-npm run start
-```
+`assets/` is generated by Gulp and is never edited by hand. Any new asset type gets its own Gulp task.
 
-## Commands List
+### Conventions
 
-**Run Develop Mode** - It launches a watcher and page refresh, allowing real-time code editing and seeing the changes.  
-**Run Build** - It gathers files from the source folder into the assets folder.  
-**Compile Fonts** - If only fonts need to be updated, you can run the "Run Develop Mode" command in parallel.  
-**Compile SVG** - If only svg need to be updated, you can run the "Run Develop Mode" command in parallel.  
-**Compile Libs** - If only folder libs need to be updated, you can run the "Run Develop Mode" command in parallel.  
+- **Theme logic** lives in `inc/`; ACF field groups are stored as [local JSON](https://www.advancedcustomfields.com/resources/local-json/) in `inc/acf-fields/`.
+- **Page templates** (`template-pages/`) and **blocks** (`template-parts/`) follow strict BEM-like naming to avoid class conflicts: `template-pages/contact.php` → `.page-contact`, `.page-contact__title`; `template-parts/card/post.php` → `.card-post`.
+- JS and SCSS for each template or block mirror the same folder and file names in `sources/js` and `sources/scss`.
+- `template-forms/` keeps the working Contact Form 7 markup in case the editor breaks it.
+- The plugin uses an autoloader over `includes/` and keeps admin markup in `templates/`, separate from View logic.
 
-## Theme Structure
+### Requirements
 
-```
-├── assets/... - The folder that is automatically generated using gulp based on tasks, with source files located in the source/ folder. Nothing can be manually added to it! If anything needs to be added to it, a corresponding task should be written in the gulpfile.js.  
-├── inc/ - The folder contains the functional logic of the theme.  
-│ ├── acf-fields/... - The folder that contains JSON files of ACF fields (https://www.advancedcustomfields.com/resources/local-json/) Which may be moved to the core plugin in the future.  
-│ └── theme/... - Contains files that are included in the main theme file functions.php.  
-├── languages/... - Default wp codex.  
-├── node_modules/... - Default node codex.  
-├── sources/ - Folder source files compiled by gulp.  
-│ ├── fonts/... - Folder for fonts, including in wp-content/themes/ct-theme/sources/scss/_fonts.scss. 
-│ ├── js/ - Folder for scripts.  
-│ │ ├── components/... - Folder for scripts related to code snippets created in the template-parts/ folder, following the same strict naming convention as described in the template-parts folder description.  
-│ │ ├── page/... - Folder for scripts related to code templates created in the template-pages/ folder, following the same strict naming convention as described in the template-pages folder description.  
-│ │ └── script.js - Entry point for all scripts.  
-│ ├── libs/ - The folder moves all contents without any modifications.  
-│ ├── scss/ - Folder for styles.  
-│ │ ├── components/... Folder for styles related to code snippets created in the template-parts/ folder, following the same strict naming convention as described in the template-parts folder description.  
-│ │ ├── page/... - Folder for styles related to code templates created in the template-pages/ folder, following the same strict naming convention as described in the template-pages folder description.  
-│ │ └── style.scss - Entry point for all styles.  
-│ └── svg/... - Folder for icons, vector graphic.  
-├── template-forms/... - Storing the working HTML from Contact Form 7 forms in case any changes made in the editor lead to code breaking.  
-├── template-pages/... - Code templates for pages. When creating a new template, it's necessary to adhere to strict naming conventions to avoid class conflicts. If we are creating a Contact page, inside this folder, file such as contact.php should be created, and the parent class for the entire page should be ".page-contact". Then, subsequent elements should be added from it: ".page-contact__title" and so on.  
-├── template-parts/... - Code snippets that can be considered as blocks or components. When creating a new block, it's essential to follow strict naming conventions to avoid class conflicts. If it logically makes sense to have multiple cards, such as a product card or a post card, then a folder named "card" should be created. Inside this folder, files such as product.php and post.php should be created. Within these files, parent classes for the block should be named according to the folder-file structure, such as ".card-post" and ".card-product".  
-├── 404.php - Default wp codex.  
-├── archive.php - Default wp codex.
-├── category.php - Default wp codex.  
-├── footer.php - Default wp codex. 
-├── functions.php - Default wp codex.  
-├── gulpfile.js - Theme gulpfile, all tasks here.  
-├── header.php - Default wp codex.  
-├── index.php - Default wp codex. 
-├── package-lock.json - Default node codex.  
-├── package.json - Default node codex.  
-├── page.php - Default wp codex.  
-├── screenshot.png - Default wp codex.  
-├── search.php - Default wp codex.
-├── single.php - Default wp codex.
-└── style.css - Default wp codex.
-```
+| | Version |
+|---|---|
+| PHP | 7.4.33 |
+| WordPress | 6.4.3 |
+| Node | 18.17.0 |
 
-## Plugin Structure
-
-```
-├── assets/... - The folder that is automatically generated using gulp based on tasks, with source files located in the source/ folder. Nothing can be manually added to it!!! If anything needs to be added to it, a corresponding task should be written in the gulpfile.js.
-├── includes/ - The folder contains all the logic. The MVC pattern is used, following an Object-Oriented Programming (OOP) approach. An autoloader is connected to the folder.
-│ ├── API/... - Some classes responsible for APIs or utility functions.
-│ ├── Controller/... - Default MVC codex.
-│ ├── Model/... - Default MVC codex.
-│ ├── View/... - Default MVC codex.
-│ └── ACF_Settings.php - Responsible for certain ACF settings, may be moved.
-├── languages/... - Default wp codex.
-├── node_modules/... - Default node codex.
-├── sources/ - Folder source files compiled by gulp.
-│ ├── js/ - Folder for scripts.
-│ │ ├── ...
-│ │ └── script.js - Entry point for all scripts.
-│ └── scss/ - Folder for styles.
-│ ├── ...
-│ └── tyle.scss - Entry point for all styles.
-├── templates/... - The plugin is built using the MVC pattern, as the VIEW has its own templates and logic. For convenience, the markup is placed in a separate folder.
-├── vendor/... - Default composer codex.
-├── composer.json - Default composer codex.
-├── composer.lock - Default composer codex.
-├── ct-core.php - Default wp codex.
-├── gulpfile.js - Plugin gulpfile, all tasks here.
-├── package-lock.json - Default node codex.
-├── package.json - Default node codex.
-└── uninstall.php - Default wp codex.
-```
-
-## Contributing
-
-There's an automatic deployment setup from the GitHub rep. to our hosting.
-
-If you want to make any changes please create brunches under your name for example: "artimon/your-branch"
-
-If you want to share something with us please open an issue/discussion. DO NOT PUSH or MERGE anything into main branch.
-
-For the review you can assign @sergiohardov
-
-## Project Specification
-
-**PHP**: _7.4.33_  
-**WP**: _6.4.3_  
-**Node**: _18.17.0_  
-
-## Plugins Dependencies
-
-**Advanced Custom Fields PRO**: _6.1.2_  
-**ACF: Multiple Taxonomy**: _1.0.6_  
-**Contact Form 7**: _5.8.4_  
-**Contact Form CFDB7**: _1.2.6.7_  
-**Yoast SEO**: _21.8_  
-**Yoast Duplicate Post**: _4.5_  
+WordPress plugins: Advanced Custom Fields PRO 6.1.2, ACF: Multiple Taxonomy 1.0.6, Contact Form 7 5.8.4, Contact Form CFDB7 1.2.6.7, Yoast SEO 21.8, Yoast Duplicate Post 4.5.
